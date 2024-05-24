@@ -1,0 +1,269 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+
+WanderLust - Contact Page
+
+{% endblock title %}
+
+{% block body %}
+
+
+                    <!-- Styles -->
+
+                <style>
+                    /* Style for placeholder text */
+                    input::placeholder,
+                    textarea::placeholder {
+                        color: #FFFFFF !important; 
+                    }
+
+                    /* Mozilla Firefox 19+ */
+                    input::-moz-placeholder,
+                    textarea::-moz-placeholder {
+                        color: #FFFFFF !important; 
+                    }
+
+                    /* Mozilla Firefox 4 to 18 */
+                    input:-moz-placeholder,
+                    textarea:-moz-placeholder {
+                        color: #FFFFFF !important; 
+                    }
+
+                    /* Internet Explorer 10-11 */
+                    input:-ms-input-placeholder,
+                    textarea:-ms-input-placeholder {
+                        color: #FFFFFF !important; 
+                    }
+
+                    /* Microsoft Edge */
+                    input::-ms-input-placeholder,
+                    textarea::-ms-input-placeholder {
+                        color: #FFFFFF !important; 
+                    }
+
+
+                    .contact .info-item {
+                    text-align: center;
+                    }
+
+                    .contact .info-item i {
+                    font-size: 48px;
+                    display: inline-block;
+                    margin-bottom: 10px;
+                    color: var(--color-primary);
+                    }
+
+                    .contact .info-item address,
+                    .contact .info-item p {
+                    margin-bottom: 0;
+                    }
+
+                    .contact .info-item h3 {
+                    font-size: 16px;
+                    margin-bottom: 15px;
+                    font-weight: bold;
+                    letter-spacing: 0.1rem;
+                    text-transform: uppercase;
+                    color: var(--color-primary);
+                    }
+
+                    .contact .info-item a:hover {
+                    color: var(--color-primary);
+                    }
+
+                    @media (min-width: 768px) {
+                    .contact .info-item-borders {
+                        border-left: 1px solid rgba(var(--color-secondary-rgb), 0.2);
+                        border-right: 1px solid rgba(var(--color-secondary-rgb), 0.2);
+                    }
+                    }
+
+                    .contact .form {
+                    box-shadow: 0 0 30px rgba(var(--color-blue-rgb), 0.1);
+                    padding: 30px;
+                    background: #000000;
+                    margin: 0 auto;
+                    max-width: 1000px;
+                    color: #FFFFFF;
+                    
+                    }
+
+                    @media (max-width: 640px) {
+                    .contact .form {
+                        padding: 20px;
+                    }
+                    }
+
+                    .contact .form .error-message {
+                    display: none;
+                    color: var(--color-white);
+                    background: var(--color-red);
+                    text-align: left;
+                    padding: 15px;
+                    font-weight: 600;
+                    }
+
+                    .contact .form .error-message br+br {
+                    margin-top: 25px;
+                    }
+
+                    .contact .form .sent-message {
+                    display: none;
+                    color: var(--color-white);
+                    background: var(--color-green);
+                    text-align: center;
+                    padding: 15px;
+                    font-weight: 600;
+                    }
+
+                    .contact .form .loading {
+                    display: none;
+                    background: var(--color-white);
+                    text-align: center;
+                    padding: 15px;
+                    }
+
+                    .contact .form .loading:before {
+                    content: "";
+                    display: inline-block;
+                    border-radius: 50%;
+                    width: 24px;
+                    height: 24px;
+                    margin: 0 10px -6px 0;
+                    border: 3px solid var(--color-green);
+                    border-top-color: var(--color-white);
+                    animation: animate-loading 5s linear infinite;
+                    }
+
+                    .contact .form .form-group {
+                    margin-bottom: 20px;
+                    }
+
+                    .contact .form input,
+                    .contact .form textarea {
+                    padding: 10px 14px;
+                    border-radius: 20px;
+                    box-shadow: none;
+                    font-size: 15px;
+                    background-color: #000000;
+                    color: #FFFFFF;
+                    }
+
+                    .contact .form input::focus,
+                    .contact .form textarea::focus {
+                    background-color: var(--color-primary);
+                    }
+
+                    .contact .form button[type=submit] {
+                    background: #0000FF;
+                    border: 0;
+                    padding: 10px 30px;
+                    color: #fff;
+                    transition: 0.4s;
+                    cursor: pointer;
+                    }
+
+                    .contact .form button[type=submit]:hover {
+                    background: #0000B8;
+                    }
+
+                    @keyframes animate-loading {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                    }
+                
+
+                </style>
+                <!-- End styles -->
+                      
+
+               
+            <section id="contact" class="contact" style="padding-bottom: 80px;" >
+                                <div class="container" data-aos="fade-up">
+
+                                <div class="row">
+                                    <div class="col-lg-12 text-center mb-5">
+                                    <h1 class="page-title text-white">Contact us</h1>
+                                    </div>
+                                </div>
+
+                                <div class="row gy-4">
+
+                                    <div class="col-md-4">
+                                    <div class="info-item">
+                                        <i class="bi bi-geo-alt text-white"></i>
+                                        <h3 class="text-white">Address</h3>
+                                        <address class="text-white">No.10 Saint Banabas Street, Ilorin, Kwara State</address>
+                                    </div>
+                                    </div><!-- End Info Item -->
+
+                                    <div class="col-md-4">
+                                    <div class="info-item info-item-borders">
+                                        <i class="bi bi-phone text-white"></i>
+                                        <h3 class="text-white">Phone Number</h3>
+                                        <p><a href="tel:+155895548855" class="text-white">+234 9161 472 627</a></p>
+                                    </div>
+                                    </div><!-- End Info Item -->
+
+                                    <div class="col-md-4">
+                                    <div class="info-item">
+                                        <i class="bi bi-envelope text-white"></i>
+                                        <h3 class="text-white">Email</h3>
+                                        <p><a href="mailto:info@example.com">daviddamilare776@gmail.com</a></p>
+                                    </div>
+                                    </div><!-- End Info Item -->
+
+                                </div>
+
+                                <div class="form mt-5">
+                                    <form  method="POST" role="form" class="form " action="contact"> {% csrf_token %}
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                        <input type="text" name="name" class="form-control text-white" id="name" placeholder="Your Fullname" required>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            {% if user.userprofile %}
+                                                <input type="email" class="form-control text-white" name="email" id="email" placeholder="{{user.userprofile.email}}">
+                                            {% else %}
+                                                <input type="email" class="form-control text-white" name="email" id="email" placeholder="Your Email" required>
+                                            {% endif %}
+                                           
+                                        </div>
+                                       
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control text-white" name="subject" id="subject" placeholder="Subject" required>
+                                    </div>
+                                  
+                                    <div class="form-group">
+                                        <textarea class="form-control text-white" name="message" id="message" rows="5" placeholder="Message" required></textarea>
+                                    </div>
+                                    <div class="my-3">
+                                        <div class="loading">Loading</div>
+                                        <div class="error-message"></div>
+                                        <div class="sent-message">Your message has been sent. We'll get back to you soon.</div>
+                                    </div>
+                                    <div class="text-center"><button type="submit">Send Message</button></div>
+                                    </form>
+                                  </div><!-- End Contact Form -->
+                                        
+           
+
+                                </div>
+            </section>
+    
+
+
+
+
+           
+
+
+
+{% endblock body %}

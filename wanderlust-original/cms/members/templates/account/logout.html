@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+
+ WanderLust - Log Out
+
+{% endblock title %}
+
+{% block content %}
+
+
+
+
+
+             <br>
+        
+
+                
+         <main class="container-1" >  
+            <div class="row">
+                <div class="col-sm-3">
+                </div> 
+                        <div class="col-sm-6">  <br><br> 
+                             
+                       
+                              
+
+                                <form method="POST" class=" f-1 text-white"  action="{% url 'logout' %}">  {%  csrf_token %}
+                                        {{form.as_p}}
+                                        
+
+                                <center><input type="submit" value="Sign Out" class="btn btn-primary" style="width: 120px;"> </center>
+                                </form>
+                                <br><br>
+                        </div> 
+            </div>  
+        </main>  
+           
+        <script>
+            let inputfields = document.getElementsByTagName('input')
+            let bodyField = document.getElementById('id_body')
+            let selectField = document.getElementById('id_category')
+            for (let i=0; i<inputfields.length; i++){
+                inputfields[i].classList.add('form-control')
+            }
+            bodyField.classList.add('form-control')
+            selectField.classList.add('form-select')
+
+
+
+
+    //         document.addEventListener('DOMContentLoaded', function () {
+    //     // Get all the alert messages with the 'alert-dismissible' class
+    //     var alertMessages = document.querySelectorAll('.alert-dismissible');
+
+    //     // Loop through each alert message
+    //     alertMessages.forEach(function (alert) {
+    //         // Set timeout to close the alert after 5 seconds
+    //         setTimeout(function () {
+    //             alert.remove(); // Remove the alert message from the DOM
+    //         }, 5000); // 5000 milliseconds = 5 seconds
+    //     });
+    // });
+        </script>
+
+
+
+{% endblock  %}
+
+

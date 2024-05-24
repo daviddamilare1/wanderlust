@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% load static %}
+
+
+
+            <!-- ======= Post Grid Section ======= -->
+         
+                  <section id="posts" class="posts">
+                      <div class="container" data-aos="fade-up">
+                        <div class="row g-5">
+
+                          <div class="  align-items-center mb-5">
+                            <br><br>
+                         
+                            </div>
+                        {% for post in queryset1 %}
+
+                              <div class="col-lg-4">
+                                
+
+                                  <div class="post-entry-1 lg">
+                                  <a href="{% url 'detail' post.slug %}">
+                                    <img src="{{post.image.url}}" alt="" class="img-fluid">
+                                    <div class="post-meta"> <span class="date">{{post.category}}</span> <span class="mx-1">&bullet;</span> <span>{{post.date_created}}</span></div>
+                                    <h2>{{post.title}} </h2>
+                                    <p class="mb-4 d-block">{{post.body|safe|truncatechars:150}}</p>
+                      
+                                    
+                                    </div> 
+                                  </a>
+                                  <div class="d-flex align-items-center author">
+                                  
+                                        <div class="photo"> <big class="text-white">Author |</big>  <a href="{% url 'profile' post.author.profile_id %}"><img src="{{post.author.user_picture.url}}" alt="" class="img-fluid"></a></div>
+                                      
+                                    <div class="name">
+                                      <a href="{% url 'profile' post.author.profile_id %}"><h3 class="m-0 p-0">{{post.author.name}}</h3></a>
+                                    </div>
+                                  </div>
+
+                              
+                    
+                              </div>
+                        {% empty %}
+                            <center><div class=" avert-c alert alert-{{message.tags}} alert-dismissible fade show bg-danger" role="alert">
+
+                                <strong> No resuls found. </strong>
+                                
+        
+                            </div></center>
+                        
+
+                        {% endfor %}
+                          
+                          
+                        </div> <!-- End .row -->
+                      </div>
+                  </section> <!-- End Post Grid Section -->
+
+
+
+
+{% endblock body %}
