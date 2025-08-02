@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% block title %}
+
+ WanderLust - User
+
+{% endblock title %}
+
+{% block body %}
+
+
+
+
+        <!-- ======= About Section ======= -->
+    <section id="about" class="about-mf sect-pt4 route">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="box-shadow-full">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="row">
+                      <div class="col-sm-6 col-md-5">
+                        <div class="about-img">
+                          <img src="assets/img/testimonial-2.jpg" class="img-fluid rounded b-shadow-a" alt="">
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-7">
+                        <div class="about-info">
+                          <p><span class="title-s">Name: </span> <span class="span-p">Morgan Freeman</span></p>
+                          <!-- <p><span class="title-s">Profile: </span> <span  class="span-p">full stack developer</span></p> -->
+                          <p><span class="title-s">Email: </span> <span  class="span-p">contact@example.com</span></p>
+                          <p><span class="title-s">Phone: </span> <span  class="span-p">(617) 557-0089</span></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="skill-mf">
+                      <p class="title-s-1">Occupation/Career</p>
+                     
+                      <span id="occupation">Html</span> 
+                     
+                     
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="about-me pt-4 pt-md-0">
+                      <div class="title-box-2">
+                        <h5 class="title-left">
+                          About me
+                        </h5>
+                      </div>
+                      <p class="lead">
+                        Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur arcu erat, accumsan id
+                        imperdiet et, porttitor
+                        at sem. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla
+                        porttitor accumsan tincidunt.
+                      </p>
+                      <p class="lead">
+                        Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus suscipit tortor eget felis
+                        porttitor volutpat. Vestibulum
+                        ac diam sit amet quam vehicula elementum sed sit amet dui. porttitor at sem.
+                      </p>
+                      <p class="lead">
+                        Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+                        Nulla porttitor accumsan
+                        tincidunt. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><!-- End About Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% for message in messages %}
+            
+<center><div class=" avert-c alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+
+    <strong> {{message}} </strong>
+    
+
+</div></center>
+
+
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+<div class="form mt-5">
+  <form  method="POST" role="form" class="php-email-form "> {% csrf_token %}
+  <div class="row">
+      <div class="form-group col-md-6">
+      <input type="text" name="name" class="form-control text-white" id="name" placeholder="Your Fullname" required>
+      </div>
+      <div class="form-group col-md-6">
+      <input type="email" class="form-control text-white" name="email" id="email" placeholder="Your Email" required>
+      </div>
+     
+  </div>
+  <div class="form-group">
+      <input type="text" class="form-control text-white" name="subject" id="subject" placeholder="Subject" required>
+  </div>
+
+  <div class="form-group">
+      <textarea class="form-control text-white" name="message" id="message" rows="5" placeholder="Message" required></textarea>
+  </div>
+  <!-- <div class="my-3">
+      <div class="loading">Loading</div>
+      <div class="error-message"></div>
+      <div class="sent-message">Your message has been sent. Thank you!</div>
+  </div> -->
+  <div class="text-center"><button type="submit">Send Message</button></div>
+  </form>
+</div><!-- End Contact Form -->
+
+
+
+
+
+
+<br><a href="{% url 'reset_password' %}" id="forgot-password" >forgot password?</a>

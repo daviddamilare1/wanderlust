@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}
+
+WanderLust - Home Page
+
+{% endblock title %}
+{% block body %}
+{% load static %}
+            <!-- ======= Post Grid Section ======= -->
+            
+                  <section id="posts" class="posts">
+                      <div class="container" data-aos="fade-up">
+                        <div class="row g-5">
+
+                          <div class="  align-items-center mb-5">
+                            <br><br>
+                            <h2 class="title-left text-white ">
+                          
+                              {{category.category_title}} <small style="font-size: 15px;">(total blogs: {{ posts|length }})</small>
+                            
+                            </h2>
+                              
+                            </div>
+                          {% for post in posts %}
+
+                              <div class="col-lg-4">
+                                
+
+                                  <div class="post-entry-1 lg">
+                                  <a href="{% url 'detail' post.slug %}">
+                                    <img src="{{post.image.url}}" alt="" class="img-fluid">
+                                    <div class="post-meta"> <span class="date">{{post.category}}</span> <span class="mx-1">&bullet;</span> <span>{{post.date_created}}</span></div>
+                                    <h2>{{post.title}} </h2>
+                                    <p class="mb-4 d-block">{{post.body|safe|truncatechars:150}}</p>
+                      
+                                    
+                                    </div> 
+                                  </a>
+                                  <div class="d-flex align-items-center author">
+                                  
+                                      <!-- author -->
+                                      
+                                    <div class="name">
+
+                                      <!-- author name -->
+                                      
+                                    </div>
+                                  </div>
+
+                              
+                    
+                              </div>
+
+                          {% endfor %}
+                          
+                          
+                        </div> <!-- End .row -->
+                      </div>
+                  </section> <!-- End Post Grid Section -->
+
+
+
+{% endblock body %}

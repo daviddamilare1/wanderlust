@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+
+ WanderLust - Upload Your Blog
+
+{% endblock title %}
+
+{% block content %}
+
+
+
+               
+             
+
+             <br>
+        
+
+                
+         <main class="container-1" >  
+            <div class="row">
+                <div class="col-sm-3">
+                </div> 
+                        <div class="col-sm-6">  <br><br> 
+                            <h2 class="update-head">Post Your Blog</h2><hr> 
+                           
+                            <p class="post-p">Fill in the form below.</p>
+                             
+                       
+                              
+
+                                <form method="POST"  enctype="multipart/form-data" class=" f-1 text-white">  {%  csrf_token %}
+                                        {{form|crispy}}
+                                        {{form.media}}
+
+                                <center><input type="submit" value="Post Blog" class="btn btn-primary" style="width: 120px;"> </center>
+                                <center><a href="{% url 'user_account'  %}" class="cancel-p">Cancel</a></center>
+                                </form>
+                                <br><br>
+                        </div> 
+            </div>  
+        </main>  
+           
+        <script>
+            let inputfields = document.getElementsByTagName('input')
+            let bodyField = document.getElementById('id_body')
+            let selectField = document.getElementById('id_category')
+            for (let i=0; i<inputfields.length; i++){
+                inputfields[i].classList.add('form-control')
+            }
+            bodyField.classList.add('form-control')
+            selectField.classList.add('form-select')
+
+
+
+
+    //         document.addEventListener('DOMContentLoaded', function () {
+    //     // Get all the alert messages with the 'alert-dismissible' class
+    //     var alertMessages = document.querySelectorAll('.alert-dismissible');
+
+    //     // Loop through each alert message
+    //     alertMessages.forEach(function (alert) {
+    //         // Set timeout to close the alert after 5 seconds
+    //         setTimeout(function () {
+    //             alert.remove(); // Remove the alert message from the DOM
+    //         }, 5000); // 5000 milliseconds = 5 seconds
+    //     });
+    // });
+        </script>
+
+
+
+{% endblock  %}
+
+

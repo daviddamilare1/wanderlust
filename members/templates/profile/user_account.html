@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% block title %}
+
+ WanderLust - User Profile
+
+{% endblock title %}
+{% block body %}
+
+
+                     <!-- ======= About Section ======= -->
+    <section id="about" class="about-mf sect-pt4 route">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="box-shadow-full">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="row">
+                      <div class="col-sm-6 col-md-5">
+                        
+
+                        <div class="about-img">
+                          <img src="{{account.user_picture.url}}" class="img-fluid rounded b-shadow-a" alt="">
+                        </div>
+                       
+                        
+                      </div>
+                      <div class="col-sm-6 col-md-7">
+                        <div class="about-info">
+                          <p><span class="title-s">Name: </span> <span class="span-p">{{account.name}}</span></p>
+                          
+                          <p><span class="title-s">Occupation: </span> <span  class="span-p">{{account.occupation}}</span></p>
+                          <p><span class="title-s">Email: </span> <span  class="span-p" style="max-width: 10vh;">{{account.email}}</span></p>
+                          <!-- <p><span class="title-s">Profile: </span> <span  class="span-p">full stack developer</span></p> -->
+                          
+                          <p><span class="title-s">Username: </span> <span  class="span-p">{{account.username}}</span></p>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="col-md-6">
+                    <div class="about-me pt-4 pt-md-0">
+                      <div class="title-box-2">
+                        <h5 class="title-left">
+                          About me
+                        </h5>
+                      </div>
+                      <p class="lead">
+                        {{account.about_user}}
+                      </p>
+                     
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><!-- End About Section -->
+
+
+      <section id="posts" class="posts">
+        <div class="container" data-aos="fade-up">
+          <div class="row g-5">
+
+            <div class=" text-center  align-items-center mb-5">
+                
+                <h3 class="title-left text-white">
+                    My blogs
+                  </h3>
+              </div>
+      
+
+            {% for post in account.post_set.all %}
+
+                <div class="col-lg-4">
+                  
+
+                    <div class="post-entry-1 lg">
+                  
+                    <a href="{% url 'detail' post.slug %}">
+                      <img src="{{post.image.url}}" alt="" class="img-fluid">
+                      <div class="post-meta"> <span class="date">{{post.category}}</span> <span class="mx-1">&bullet;</span> <span>{{post.date_created}}</span></div>
+                      <h2>{{post.title}} </h2>
+                      <p class="mb-4 d-block">{{post.body|safe|truncatechars:150}}</p>
+                            <div class="d-flex align-items-center author">
+                                        
+                                <div class="photo"> <a href="{% url 'update' post.slug %}"> <button class="update" >Update</button></a> |  <a href="{% url 'delete' post.slug %}"> <button class="delete-btn" >Delete</button></a></div>
+                            
+                                
+                            </div>
+        
+                       
+                      </div> 
+                    </a>
+                  
+                    
+
+                
+      
+                </div>
+
+            {% endfor %}
+          
+            
+          </div> <!-- End .row -->
+        </div>
+      </section> <!-- End Post Grid Section -->
+
+
+
+
+
+
+
+
+
+{% endblock body %}
