@@ -1,2 +1,2 @@
 # wanderlust
-A blog website for users to read posts, comment and also publish their own blogs
+Full-stack blog platform: Django for posts/comments/user publishing + BootstrapMade template
